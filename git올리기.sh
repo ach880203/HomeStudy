@@ -1,3 +1,3 @@
 git add .
-git commit -m "Home"
+git commit -m "home"
 git push
