@@ -2,6 +2,7 @@ package com.saeyan.controller;
 
 import com.saeyan.controller.action.Action;
 import com.saeyan.controller.action.MemberLoginAction;
+import com.saeyan.controller.action.MemberLoginFormAction;
 
 public class ActionFactory {
 
@@ -20,10 +21,17 @@ public class ActionFactory {
 		
 		System.out.println("ActionFactory : " + command);
 		
+		
 		if(command.equals("memberLogin")) {
-			action = new MemberLoginAction();
-	
+			
+		    action = new MemberLoginFormAction();
+		    
+		}else if(command.equals("fruitHome")) {
+			
+		    action = new MemberLoginAction();
 		}
+
+	System.out.println("action 객체 : " + action);
 		
 		return action;
 		

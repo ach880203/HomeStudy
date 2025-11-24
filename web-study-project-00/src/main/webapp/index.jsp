@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
    
 <%
-	response.sendRedirect("MemberServlet?command=MemberServlet");
+response.sendRedirect("MemberServlet?command=memberLogin");
 %>
