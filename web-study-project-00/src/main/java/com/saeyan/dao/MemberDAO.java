@@ -3,7 +3,6 @@ package com.saeyan.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 import com.saeyan.dto.MemberVO;
 
@@ -60,7 +59,67 @@ public class MemberDAO {
 		    return vo;
 		}// end DB확인
 
-	
+	 public int insertMember(MemberVO vo) {
+		 
+		 Connection con = null;
+		 PreparedStatement pstmt = null;
+		 int result = -1;
+		 
+		 String sql ="insert into member(userid, pass, name, nick, "
+		 		+ "email, phone, admin, address)values(?, ?, ?, ?, ?, ?, ?,?)";
+		 
+		 try {
+			 con = DBManager.getConnection();
+			 
+			 pstmt = con.prepareStatement(sql);
+			 
+			 pstmt.setString(1, vo.getUserid());
+			 pstmt.setString(2, vo.getPass());
+			 pstmt.setString(3, vo.getName());
+			 pstmt.setString(4, vo.getNick());
+			 pstmt.setString(5, vo.getEmail());
+			 pstmt.setString(6, vo.getPhone());
+			 pstmt.setInt(7, 0); //기본은 일반회원
+			 pstmt.setString(8, vo.getAddress());
+			 
+			 result = pstmt.executeUpdate();
+		 }catch (Exception e) {
+			 e.printStackTrace();
+		 }finally {
+			DBManager.close(con, pstmt);
+		}
+		 	 		 
+		 
+		return result;
+	 }
+
+	 public int idOk(String userid) {
+		 
+		 int result = -1;
+		 String sql = "select useid from member where userid = ?";
+		 
+		 try(
+				 
+				 Connection con = DBManager.getConnection();
+				 PreparedStatement pstmt = con.prepareStatement(sql)){
+			 
+			 	pstmt.setString(1, userid);
+			 	ResultSet rs = pstmt.executeQuery();
+			 	
+			 	
+			 	if(rs.next()) result = 1; //아이디 존재
+			 	else result = -1; //아이디 없음
+			 
+		 }catch (Exception e) {
+			 
+			 e.printStackTrace();
+			 
+		 }
+		 
+		return result;
+		
+	 }
+		
 	
 	
 }

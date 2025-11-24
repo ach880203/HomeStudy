@@ -8,6 +8,7 @@
 
 <!-- CSS 경로 수정: 상위 폴더 이동 필요 -->
 <link rel="stylesheet" type="text/css" href="../css/login.css">
+<script type="text/javascript" src="script/member.js"></script>
 
 </head>
 <body>
@@ -34,7 +35,7 @@
     <div class="links">
         <a href="#">아이디찾기</a> |
         <a href="#">비밀번호찾기</a> |
-        <a href="MemberServlet?command=joinForm">회원가입</a>
+        <a href="MemberServlet?command=fruitJoin">회원가입</a>
         <!-- FruitServlet 오타 삭제 + MemberServlet 구조에 맞게 수정 -->
     </div>
 </div>
