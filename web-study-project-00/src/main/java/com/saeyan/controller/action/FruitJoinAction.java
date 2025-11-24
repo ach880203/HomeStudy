@@ -30,15 +30,13 @@ public class FruitJoinAction implements Action{
 		 int result = mdao.insertMember(vo);
 		 
 		 		    
-		if(result > 0) {
-		
-			response.sendRedirect("MemberServlet?command=memberLogin");
-		
-		}else
-		
-		{request.setAttribute("message", "회원가입에 실패했습니다."); //실패하면 메세지 보여주고
-		 request.getRequestDispatcher("/member/fruitJoin.jsp").forward(request, response);
-		}
+		 if(result > 0) {
+			    response.sendRedirect("MemberServlet?command=memberLogin");
+			} else {
+			    request.setAttribute("message", "회원가입에 실패했습니다.");
+			    request.getRequestDispatcher("/member/fruitJoin.jsp").forward(request, response);
+			}
+
 	}
 
 }

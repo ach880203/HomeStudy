@@ -96,7 +96,7 @@ public class MemberDAO {
 	 public int idOk(String userid) {
 		 
 		 int result = -1;
-		 String sql = "select useid from member where userid = ?";
+		 String sql = "select userid from member where userid = ?";
 		 
 		 try(
 				 

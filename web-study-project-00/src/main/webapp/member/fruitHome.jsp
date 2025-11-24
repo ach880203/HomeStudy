@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>과일 홈</title>
 <link rel="stylesheet" type="text/css" href="css/shopping.css">
-<script type="text/javascript" src="script/member.js"></script>
+<script type="text/javascript" src="script/memberscr.js"></script>
 </head>
 <body>
 

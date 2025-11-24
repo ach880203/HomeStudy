@@ -7,15 +7,16 @@
 <title>로그인</title>
 
 <!-- CSS 경로 수정: 상위 폴더 이동 필요 -->
-<link rel="stylesheet" type="text/css" href="../css/login.css">
-<script type="text/javascript" src="script/member.js"></script>
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script type="text/javascript" src="script/memberscr.js"></script>
 
 </head>
 <body>
 <div class="login-container">
     <h2>로그인</h2>
 
-    <form action="MemberServlet" method="POST">
+    <form name="frm" action="MemberServlet" method="POST" onsubmit="return loginCheck()">
+
         <!-- Login Form Action Command -->
         <input type="hidden" name="command" value="fruitHome">
 
@@ -30,7 +31,12 @@
         </div>
 
         <button type="submit" class="login-btn">로그인</button>
+
+    <script type="text/javascript" src="../script/memberscrs.js"></script>
+
     </form>
+    
+    
 
     <div class="links">
         <a href="#">아이디찾기</a> |
